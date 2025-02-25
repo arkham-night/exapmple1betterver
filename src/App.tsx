@@ -13,6 +13,7 @@ import ExperienceJourney from './components/ExperienceJourney';
 import ImmersiveElements from './components/ImmersiveElements';
 import Contact from './pages/Contact';
 import './styles/global.css';
+import './App.css';
 
 const queryClient = new QueryClient();
 
