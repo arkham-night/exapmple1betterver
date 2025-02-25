@@ -1,15 +1,12 @@
-
-import type { Config } from "tailwindcss";
+import { Config } from 'tailwindcss';
 
 export default {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -61,16 +58,6 @@ export default {
         },
       },
       keyframes: {
-        "text-reveal": {
-          "0%": { 
-            transform: "translateY(100%)",
-            opacity: "0"
-          },
-          "100%": { 
-            transform: "translateY(0)",
-            opacity: "1"
-          }
-        },
         "fade-up": {
           "0%": { 
             transform: "translateY(20px)",
@@ -80,25 +67,10 @@ export default {
             transform: "translateY(0)",
             opacity: "1"
           }
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" }
-        },
-        "text-shimmer": {
-          "0%": {
-            backgroundPosition: "200% 0"
-          },
-          "100%": {
-            backgroundPosition: "-200% 0"
-          }
         }
       },
       animation: {
-        "text-reveal": "text-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
         "fade-up": "fade-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-        float: "float 6s ease-in-out infinite",
-        "text-shimmer": "text-shimmer 4s ease-in-out infinite"
       },
     },
   },
