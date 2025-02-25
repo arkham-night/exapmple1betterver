@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Circle, LucideProps } from 'lucide-react';
+import './SkillVisualization.css';
 
 interface Skill {
   name: string;
@@ -90,26 +89,26 @@ const SkillVisualization = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 relative overflow-hidden bg-creative-dark">
+    <section className="skill-visualization">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="container mx-auto px-4"
+        className="skill-container"
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 playfair gradient-text text-center">
+        <h2 className="skill-title">
           Skill Matrix
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="relative aspect-square">
+        <div className="skill-grid">
+          <div className="skill-canvas-container">
             <canvas
               ref={canvasRef}
-              className="w-full h-full"
+              className="skill-canvas"
             />
           </div>
 
-          <div className="space-y-6">
+          <div className="skill-list">
             {skills.map((skill) => (
               <motion.div
                 key={skill.name}
@@ -117,20 +116,20 @@ const SkillVisualization = () => {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="skill-item"
                 onMouseEnter={() => setActiveSkill(skill)}
                 onMouseLeave={() => setActiveSkill(null)}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-medium">{skill.name}</h3>
-                  <span className="text-sm text-creative-gray/80">{skill.level}%</span>
+                <div className="skill-item-header">
+                  <h3 className="skill-item-name">{skill.name}</h3>
+                  <span className="skill-item-level">{skill.level}%</span>
                 </div>
-                <div className="h-2 bg-creative-dark/30 rounded-full overflow-hidden">
+                <div className="skill-item-bar">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="h-full rounded-full"
+                    className="skill-item-progress"
                     style={{
                       background: `linear-gradient(90deg, ${getSkillColor(skill.category)}88, ${getSkillColor(skill.category)})`
                     }}
@@ -140,7 +139,7 @@ const SkillVisualization = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute mt-2 p-2 bg-creative-dark/90 rounded text-sm"
+                    className="skill-item-description"
                   >
                     {skill.description}
                   </motion.div>

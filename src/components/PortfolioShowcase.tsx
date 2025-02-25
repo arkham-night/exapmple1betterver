@@ -1,7 +1,7 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';
+import './PortfolioShowcase.css';
 
 interface Project {
   id: number;
@@ -58,18 +58,18 @@ const PortfolioShowcase = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 relative overflow-hidden">
+    <section className="portfolio-showcase">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="container mx-auto px-4"
+        className="portfolio-container"
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 playfair gradient-text text-center">
+        <h2 className="portfolio-title">
           Portfolio Showcase
         </h2>
         
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={containerRef} className="work-samples">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -79,26 +79,20 @@ const PortfolioShowcase = () => {
               whileHover="hover"
               variants={projectVariants}
               viewport={{ once: true }}
-              className="relative group"
+              className="work-sample"
             >
-              <div 
-                className={`
-                  relative overflow-hidden rounded-lg aspect-[4/3] bg-creative-dark
-                  before:absolute before:inset-0 before:bg-gradient-to-b 
-                  before:from-transparent before:to-creative-dark/80 before:z-10
-                `}
-              >
+              <div className="work-sample-image-container">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="work-sample-image"
                 />
-                <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-                  <h3 className="text-2xl font-bold mb-2 playfair">{project.title}</h3>
-                  <p className="text-creative-gray/80">{project.description}</p>
+                <div className="work-sample-overlay">
+                  <h3 className="work-sample-title">{project.title}</h3>
+                  <p className="work-sample-description">{project.description}</p>
                 </div>
                 <div
-                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="work-sample-shadow"
                   style={{
                     background: `radial-gradient(circle at center, ${
                       hoveredProject === project.id ? '#FF3366' : '#FFD700'

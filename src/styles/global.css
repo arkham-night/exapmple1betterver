@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #1A1A1A;
+  color: #E5E5E5;
+}
+
+a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF3366;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: 'Arial', sans-serif;
+}
+
+::selection {
+  background: #FF3366;
+  color: #fff;
+}

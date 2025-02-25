@@ -1,0 +1,100 @@
+.experience-journey {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #1A1A1A;
+  overflow: hidden;
+  padding: 5rem 1rem;
+}
+
+.experience-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.experience-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+  background: linear-gradient(90deg, #FF3366, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.experience-year {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #FF3366, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.experience-details {
+  flex: 1;
+  background: rgba(26, 26, 26, 0.3);
+  backdrop-blur: 10px;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 51, 102, 0.2);
+}
+
+.experience-company {
+  color: rgba(229, 229, 229, 0.8);
+  margin-bottom: 1rem;
+}
+
+.experience-achievements {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.achievement-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #FF3366;
+  border-radius: 50%;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-item {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 51, 102, 0.1);
+  border: 1px solid rgba(255, 51, 102, 0.2);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}

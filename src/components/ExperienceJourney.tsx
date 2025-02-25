@@ -1,7 +1,7 @@
-
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';
+import './ExperienceJourney.css';
 
 interface Experience {
   year: number;
@@ -119,62 +119,62 @@ const ExperienceJourney = () => {
   }, []);
 
   return (
-    <section className="min-h-screen relative py-20 overflow-hidden">
+    <section className="experience-journey">
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full -z-10"
+        className="experience-canvas"
       />
       
-      <div className="container mx-auto px-4">
+      <div className="experience-container">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 playfair gradient-text text-center"
+          className="experience-title"
         >
           Experience Journey
         </motion.h2>
 
-        <div ref={containerRef} className="relative">
+        <div ref={containerRef} className="experience-list">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.year}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="relative flex items-center gap-8 mb-16"
+              className="experience-item"
             >
-              <div className="w-32 text-2xl font-bold gradient-text">
+              <div className="experience-year">
                 {exp.year}
               </div>
               
-              <div className="flex-1 bg-creative-dark/30 backdrop-blur-sm rounded-lg p-6 border border-creative-accent/20">
-                <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
-                <p className="text-creative-gray/80 mb-4">{exp.company}</p>
+              <div className="experience-details">
+                <h3 className="experience-title">{exp.title}</h3>
+                <p className="experience-company">{exp.company}</p>
                 
-                <ul className="space-y-2 mb-4">
+                <ul className="experience-achievements">
                   {exp.achievements.map((achievement, i) => (
                     <motion.li
                       key={i}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 * i }}
-                      className="flex items-center gap-2"
+                      className="achievement-item"
                     >
-                      <span className="w-2 h-2 bg-creative-accent rounded-full" />
+                      <span className="achievement-dot" />
                       {achievement}
                     </motion.li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="experience-skills">
                   {exp.skills.map((skill, i) => (
                     <motion.span
                       key={i}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: 0.1 * i }}
-                      className="px-3 py-1 rounded-full text-sm bg-creative-accent/10 border border-creative-accent/20"
+                      className="skill-item"
                     >
                       {skill}
                     </motion.span>
