@@ -24,7 +24,7 @@ export default {
         foreground: "hsl(var(--foreground))",
         creative: {
           dark: "#1A1A1A",
-          accent: "#8B5CF6", // Changed from #FF3366 to a pleasant violet
+          accent: "#8B5CF6",
           gold: "#FFD700",
           gray: "#E5E5E5",
         },
@@ -67,10 +67,19 @@ export default {
             transform: "translateY(0)",
             opacity: "1"
           }
+        },
+        "text-shimmer": {
+          "0%": {
+            backgroundPosition: "200% 0"
+          },
+          "100%": {
+            backgroundPosition: "-200% 0"
+          }
         }
       },
       animation: {
         "fade-up": "fade-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "text-shimmer": "text-shimmer 4s ease-in-out infinite"
       },
     },
   },
