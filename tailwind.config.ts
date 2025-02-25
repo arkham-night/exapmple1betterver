@@ -75,11 +75,22 @@ export default {
           "100%": {
             backgroundPosition: "-200% 0"
           }
-        }
+        },
+        "text-reveal": {
+          "0%": { 
+            transform: "translateY(100%)",
+            opacity: "0"
+          },
+          "100%": { 
+            transform: "translateY(0)",
+            opacity: "1"
+          }
+        },
       },
       animation: {
         "fade-up": "fade-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-        "text-shimmer": "text-shimmer 4s ease-in-out infinite"
+        "text-shimmer": "text-shimmer 4s ease-in-out infinite",
+        "text-reveal": "text-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
       },
     },
   },
